@@ -21,29 +21,28 @@ class qualys {
   $customerid         = 'ee2eaba9-536d-4e68-815c-126069358167'
   $usergroup          = 'root'
 
+  notify { $facts['qualysfile']: }
 
   package { 'qualys-cloud-agent':
     ensure => 'installed',
   }
 
-  file { '/tmp/qualys-cloud-agent.properties':
+  file { '/etc/qualys/cloud-agent/qualys-cloud-agent.properties':
     ensure  => file,
     content => epp('qualys/properties.epp'),
     require => Package['qualys-cloud-agent'],
   }
 
-  if $facts['compconfprop'] != 0 {
-    file { '/tmp/qualys-cloud-agent.conf':
-      ensure  => file,
-      content => '',
-      notify  => Service['qualys-cloud-agent.service'],
-      require => [File['/tmp/qualys-cloud-agent.properties'],Package['qualys-cloud-agent']],
-    }
+  file { '/etc/qualys/cloud-agent/qualys-cloud-agent.conf':
+    ensure  => file,
+    content => epp('qualys/properties.epp'),
+    require => [Package['qualys-cloud-agent'], File['/etc/qualys/cloud-agent/qualys-cloud-agent.properties']],
+    notify  => Service['qualys-cloud-agent.service'],
   }
 
   service { 'qualys-cloud-agent.service':
     ensure  => running,
-    enabled => true,
+    enable  => true,
     require => Package['qualys-cloud-agent'],
   }
 }

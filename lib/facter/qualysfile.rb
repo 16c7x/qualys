@@ -3,8 +3,17 @@
 # return a non zero if they don't match.
 
 
-Facter.add('compconfprop') do
-    setcode do
-      Facter::Core::Execution.exec('cmp -s /etc/qualys/cloud-agent/qualys-cloud-agent.conf /etc/qualys/cloud-agent/qualys-cloud-agent.properties; echo $?')
+Facter.add('qualysfile') do
+  setcode do
+    qualysfile = {}
+    filecontents = File.open('/etc/qualys/cloud-agent/qualys-cloud-agent.conf').read
+    filecontents.each_line do |line|
+      if line.include? "#"
+      else
+        a = line.split("=")
+        qualysfile[a[0]] = a[1].chomp
+      end
     end
+    qualysfile
   end
+end
