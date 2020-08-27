@@ -1,0 +1,24 @@
+# THIS FILE IS MANAGED BY PUPPET
+#LogLevel: Higher value means more verbose. 0=fatal, 1=error, 2=warning, 3=info, 4=debug, 5=tracing
+#CmdMaxTimeOut: TimeOut in seconds. Any command execution that exceeds this time will be killed.
+#ProcessPriority: To set process priority(nice value).
+#RequestTimeOut: Http request timeout in seconds.
+#CmdStdOutSize: Command std output size in KB. Any command output size exceeds this time will be truncated.
+
+UseSudo=<%= $qualys::usesudo %>
+SudoUser=<%= $qualys::sudouser %>
+SudoCommand=<%= $qualys::sudocommand %>
+LogLevel=<%= $qualys::loglevel %>
+LogFileDir=<%= $qualys::logfiledir %>
+CmdMaxTimeOut=<%= $qualys::cmdmaxtimeout %>
+ProcessPriority=<%= $qualys::processpriority %>
+RequestTimeOut=<%= $qualys::requesttimeout %>
+UseAuditDispatcher=<%= $qualys::useauditdispatcher %>
+CmdStdOutSize=<%= $qualys::cmdstdoutsize %>
+LuaScriptTimeOut=<%= $qualys::luascripttimeout %>
+ActivationId=<%= $qualys::activationid %>
+CustomerId=<%= $qualys::customerid %>
+UserGroup=<%= $qualys::usergroup %>
+
+
+
