@@ -1,8 +1,8 @@
-# compconfprop.rb
-# Compare /etc/qualys/cloud-agent/qualys-cloud-agent.conf and /etc/qualys/cloud-agent/qualys-cloud-agent.properties
-# return a non zero if they don't match.
-
-
+# Creates the fact qualysfile which is a hash of the key=value pairs in the 
+# /etc/qualys/cloud-agent/qualys-cloud-agent.conf file
+# Reads the file line by line, ignoring comment lines.
+# Splits the line at the = and adds both sides to the hash.
+# removes commas and line endings. 
 Facter.add('qualysfile') do
   setcode do
     qualysfile = {}
