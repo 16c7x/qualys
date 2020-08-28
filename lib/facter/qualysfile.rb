@@ -1,8 +1,8 @@
 # Creates the fact qualysfile which is a hash of the key=value pairs in the 
 # /etc/qualys/cloud-agent/qualys-cloud-agent.conf file
-# Reads the file line by line, ignoring comment lines.
+# Reads the file line by line, ignoring comment lines and blank lines.
 # Splits the line at the = and adds both sides to the hash.
-# removes commas and line endings. 
+# Removes commas and line endings. 
 Facter.add('qualysfile') do
   confine :kernel => 'Linux'
   setcode do
