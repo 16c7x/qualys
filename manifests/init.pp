@@ -17,8 +17,8 @@ class qualys {
   $useauditdispatcher = '1'
   $cmdstdoutsize      = '1024'
   $luascripttimeout   = '3600'
-  $activationid       = 'c24767f8-1948-40b4-b6b7-589e5175c289'
-  $customerid         = 'ee2eaba9-536d-4e68-815c-126069358167'
+  $activationid       = '#################'
+  $customerid         = '#################'
   $usergroup          = 'root'
 
   package { 'qualys-cloud-agent':
