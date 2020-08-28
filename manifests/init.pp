@@ -57,8 +57,10 @@ class qualys {
   $configs.each |$configs| {
     if $configs[1] != $facts['qualysfile'][$configs[0]] {
       file_line { $configs[0]:
-        path => '/etc/qualys/cloud-agent/qualys-cloud-agent.properties',
-        line => "${configs[0]}=${configs[1]}",
+        path    => '/etc/qualys/cloud-agent/qualys-cloud-agent.properties',
+        line    => "${configs[0]}=${configs[1]}",
+        require => Package['qualys-cloud-agent'],
+        before  => File['/etc/qualys/cloud-agent/qualys-cloud-agent.conf'],
       }
     }
   }
