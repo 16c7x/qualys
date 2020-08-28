@@ -38,6 +38,10 @@ class qualys {
     require => Package['qualys-cloud-agent'],
   }
 
+  file { '/etc/qualys/cloud-agent/qualys-cloud-agent.properties':
+    ensure  => file,
+  }
+
   $configs = [['UseSudo', $usesudo],
               ['SudoUser', $sudouser],
               ['SudoCommand', $sudocommand],
@@ -59,7 +63,7 @@ class qualys {
       file_line { $configs[0]:
         path    => '/etc/qualys/cloud-agent/qualys-cloud-agent.properties',
         line    => "${configs[0]}=${configs[1]}",
-        require => Package['qualys-cloud-agent'],
+        require => [Package['qualys-cloud-agent'], File['/etc/qualys/cloud-agent/qualys-cloud-agent.properties']],
         before  => File['/etc/qualys/cloud-agent/qualys-cloud-agent.conf'],
       }
     }

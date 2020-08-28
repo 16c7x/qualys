@@ -9,6 +9,7 @@ Facter.add('qualysfile') do
     filecontents = File.open('/etc/qualys/cloud-agent/qualys-cloud-agent.conf').read
     filecontents.each_line do |line|
       if line.include? "#"
+      elsif line.to_s.strip.empty?
       else
         a = line.split("=")
         qualysfile[a[0]] = a[1].chomp
