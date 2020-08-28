@@ -21,22 +21,14 @@ class qualys {
   $customerid         = 'ee2eaba9-536d-4e68-815c-126069358167'
   $usergroup          = 'root'
 
-  notify { $facts['qualysfile']: }
-
   package { 'qualys-cloud-agent':
     ensure => 'installed',
-  }
-
-  file { '/etc/qualys/cloud-agent/qualys-cloud-agent.properties':
-    ensure  => file,
-    content => epp('qualys/properties.epp'),
-    require => Package['qualys-cloud-agent'],
   }
 
   file { '/etc/qualys/cloud-agent/qualys-cloud-agent.conf':
     ensure  => file,
     content => epp('qualys/properties.epp'),
-    require => [Package['qualys-cloud-agent'], File['/etc/qualys/cloud-agent/qualys-cloud-agent.properties']],
+    require => Package['qualys-cloud-agent'],
     notify  => Service['qualys-cloud-agent.service'],
   }
 
@@ -45,4 +37,32 @@ class qualys {
     enable  => true,
     require => Package['qualys-cloud-agent'],
   }
+
+  $configs = [['UseSudo', $usesudo],
+              ['SudoUser', $sudouser],
+              ['SudoCommand', $sudocommand],
+              ['LogLevel', $loglevel],
+              ['LogFileDir', $logfiledir],
+              ['CmdMaxTimeOut', $cmdmaxtimeout],
+              ['ProcessPriority', $processpriority],
+              ['RequestTimeOut', $requesttimeout],
+              ['UseAuditDispatcher', $useauditdispatcher],
+              ['CmdStdOutSize', $cmdstdoutsize],
+              ['LuaScriptTimeOut', $luascripttimeout],
+              ['ActivationId', $activationid],
+              ['CustomerId', $customerid],
+              ['UserGroup', $usergroup]
+              ]
+
+  $configs.each |$configs| {
+    if $configs[1] != $facts['qualysfile'][$configs[0]] {
+      file_line { $configs[0]:
+        path => '/etc/qualys/cloud-agent/qualys-cloud-agent.properties',
+        line => "${configs[0]}=${configs[1]}",
+      }
+    }
+  }
 }
+
+
+
