@@ -4,6 +4,7 @@
 # Splits the line at the = and adds both sides to the hash.
 # removes commas and line endings. 
 Facter.add('qualysfile') do
+  confine :kernel => 'Linux'
   setcode do
     qualysfile = {}
     filecontents = File.open('/etc/qualys/cloud-agent/qualys-cloud-agent.conf').read
