@@ -1,25 +1,82 @@
-# @summary A short summary of the purpose of this class
+# @sumary
+# 
+# This class installes and configures the Qualys agent.
 #
-# A description of what this class does
+# It is important to note that this class requires an activationid and clientid
+# to be specified.
 #
 # @example
-#   include qualys
-class qualys {
+# class { '::qualys':
+#   activationid => 'c24767f8-1948-40b4-b6b7-589e5175c289',
+#   customerid   => 'c24767f8-1948-40b4-b6b7-589e5175c289',
+# }
+# 
+# @usesudo
+#   Should commands use sudo.
+# 
+# @sudouser
+#   If sudo is to be used define the user.
+#
+# @sudocommand
+#   The command to run sudo.
+#
+# @log_level
+#
+#
+# @logfiledir
+#
+#
+# @cmdmaxtimeout
+#
+#
+# @processpriority
+#
+#
+# @requesttimeout
+#
+#
+# @useauditdispatcher
+#
+#
+# @cmdstdoutsize
+#
+#
+# @luascripttimeout
+#
+#
+# @activationid
+#
+#
+# @customerid
+#
+#
+# @usergroup
+#
+#
+class qualys (
+  String              $usesudo            = '0',
+  String              $sudouser           = 'root',
+  String              $sudocommand        = 'sudo',
+  String              $log_level           = '3',
+  String              $logfiledir         = '/var/log/qualys',
+  String              $cmdmaxtimeout      = '1800',
+  String              $processpriority    = '0',
+  String              $requesttimeout     = '600',
+  String              $useauditdispatcher = '1',
+  String              $cmdstdoutsize      = '1024',
+  String              $luascripttimeout   = '3600',
+  String              $activationid       = undef,
+  String              $customerid         = undef,
+  String              $usergroup          = 'root',
+) {
 
-  $usesudo            = '0'
-  $sudouser           = 'root'
-  $sudocommand        = 'sudo'
-  $loglevel           = '3'
-  $logfiledir         = '/var/log/qualys'
-  $cmdmaxtimeout      = '1800'
-  $processpriority    = '0'
-  $requesttimeout     = '600'
-  $useauditdispatcher = '1'
-  $cmdstdoutsize      = '1024'
-  $luascripttimeout   = '3600'
-  $activationid       = '#################'
-  $customerid         = '#################'
-  $usergroup          = 'root'
+  if $activationid != undef {
+    err('Activation ID must be set')
+  }
+
+  if $customerid != undef {
+    err('Customer ID must be set')
+  }
 
   package { 'qualys-cloud-agent':
     ensure => 'installed',
@@ -45,7 +102,7 @@ class qualys {
   $configs = [['UseSudo', $usesudo],
               ['SudoUser', $sudouser],
               ['SudoCommand', $sudocommand],
-              ['LogLevel', $loglevel],
+              ['LogLevel', $log_level],
               ['LogFileDir', $logfiledir],
               ['CmdMaxTimeOut', $cmdmaxtimeout],
               ['ProcessPriority', $processpriority],

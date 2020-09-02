@@ -8,7 +8,7 @@
 UseSudo=<%= $qualys::usesudo %>
 SudoUser=<%= $qualys::sudouser %>
 SudoCommand=<%= $qualys::sudocommand %>
-LogLevel=<%= $qualys::loglevel %>
+LogLevel=<%= $qualys::log_level %>
 LogFileDir=<%= $qualys::logfiledir %>
 CmdMaxTimeOut=<%= $qualys::cmdmaxtimeout %>
 ProcessPriority=<%= $qualys::processpriority %>
