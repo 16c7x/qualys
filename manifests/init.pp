@@ -7,51 +7,37 @@
 #
 # @example
 # class { '::qualys':
-#   activationid => 'c24767f8-1948-40b4-b6b7-589e5175c289',
-#   customerid   => 'c24767f8-1948-40b4-b6b7-589e5175c289',
+#   activationid => '',
+#   customerid   => '',
 # }
 # 
-# @usesudo
-#   Should commands use sudo.
+# @usesudo - 0 or 1
 # 
-# @sudouser
-#   If sudo is to be used define the user.
+# @sudouser - scanuser
 #
-# @sudocommand
-#   The command to run sudo.
+# @sudocommand - cmd
 #
-# @log_level
+# @log_level - a number between 0 and 5
 #
+# @logfiledir - directory where the log file should be created.Please make sure this directory should be accessible for agent user.
 #
-# @logfiledir
+# @cmdmaxtimeout - command max wait-time in seconds
 #
+# @processpriority - -20 to 19
 #
-# @cmdmaxtimeout
+# @requesttimeout - command max wait-time in seconds
 #
+# @useauditdispatcher - 0 or 1
 #
-# @processpriority
+# @cmdstdoutsize - command std output size in KB, default value is 1024 and max limit is 5120
 #
+# @luascripttimeout - max wait-time in seconds
 #
-# @requesttimeout
+# @activationid - xxxx-xx-xxxxxxx
 #
+# @customerid - xxxx-xx-xxxxxxx
 #
-# @useauditdispatcher
-#
-#
-# @cmdstdoutsize
-#
-#
-# @luascripttimeout
-#
-#
-# @activationid
-#
-#
-# @customerid
-#
-#
-# @usergroup
-#
+# @usergroup - scangroup
 #
 class qualys (
   String              $usesudo            = '0',
