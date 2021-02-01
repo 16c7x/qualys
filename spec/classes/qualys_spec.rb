@@ -12,7 +12,7 @@ describe 'qualys' do
           customerid: '6789',
         }
       end
-      
+
       it { is_expected.to contain_class('qualys') }
     end
   end
