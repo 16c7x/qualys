@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/16c7x/qualys/master.svg?style=flat-square)](https://travis-ci.org/16c7x/qualys)
+
 # qualys
 
 This module installs the Qualys Agent.
