@@ -1,6 +1,8 @@
 [![Build Status](https://img.shields.io/travis/16c7x/qualys/master.svg?style=flat-square)](https://travis-ci.org/16c7x/qualys)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/16c7x/qualys.svg?style=flat-square)](https://forge.puppetlabs.com/16c7x/qualys)
-
+[![Puppet Forge](https://img.shields.io/puppetforge/dt/16c7x/qualys.svg?style=flat-square)](https://forge.puppet.com/16c7x/qualys)
+[![Puppet Forge](https://img.shields.io/puppetforge/e/16c7x/qualys.svg?style=flat-square)](https://forge.puppet.com/16c7x/qualys)
+[![Puppet Forge](https://img.shields.io/puppetforge/f/16c7x/qualys.svg?style=flat-square)](https://forge.puppet.com/16c7x/qualys)
 
 # qualys
 
