@@ -10,8 +10,8 @@ describe 'qualys' do
         {
           activationid: '12345',
           customerid: '6789',
-          qualysfile::UseSudo: '0'
-          qualysfile::sudouser: 'root',
+          qualysfile:UseSudo: '0'
+          qualysfile.sudouser: 'root',
           qualysfile::sudocommand: 'sudo',
           qualysfile::log_level:  '3',
           qualysfile::logfiledir: '/var/log/qualys',
