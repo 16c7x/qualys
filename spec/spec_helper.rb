@@ -10,6 +10,22 @@ include RspecPuppetFacts
 default_facts = {
   puppetversion: Puppet.version,
   facterversion: Facter.version,
+  qualysfile: {
+    UseSudo: '0',
+    sudouser: 'root',
+    sudocommand: 'sudo',
+    log_level:  '3',
+    logfiledir: '/var/log/qualys',
+    cmdmaxtimeout: '1800',
+    processpriority: '0',
+    requesttimeout: '600',
+    useauditdispatcher: '1',
+    cmdstdoutsize: '1024',
+    luascripttimeout: '3600',
+    activationid: '12345',
+    customerid: '6789',
+    usergroup: 'root',
+  },
 }
 
 default_fact_files = [
