@@ -18,3 +18,12 @@ matrix:
   - rvm: 2.1.9
     bundler_args: --without system_tests development release
     env: PUPPET_VERSION="~> 4.0" CHECK=test PARALLEL_TEST_PROCESSORS=16
+deploy:
+  provider: puppetforge
+  user: 16c7x
+  password:
+    secure: "NLyaA5lA+bsWk+ELC1MCqhqteppcGm4QKLJptUV2N1CXmUCOQFAUybdlRf4ZPpcygHAxnPXfMZc5Xh/7cktVWr0extV3aLANybbQR6gfiBACaeythqgSqDt1pAp8mh0wbP5pspDS7rqjUfCkLltwxYpphNgeLHRMfuZdC+DMBG//QsXAs17wAzS4/2jrvwv+ek0BsG+IumR7MyE2OoXVxqmMDSCMnCjAsSqJI01UJceuDNPSxAjoXRr9wRbCF+kbswJopRc/gmHXK//hm+OXWZ474M207y4YlK/hph0scOsqimV2hDk32PYoZzlFyTugn4/2t9wrSHBY7CuII0NeoW2i6D84ODndXcaFemygwuVN69LFZT1DTkmdRbWFKZIorbb9a6aX2vFhMu+gxwI9acJHZcHQcjiWlW9qVnOW2wp1O4WbmmiQCVrGcmeg+nkJyDwfDeifjYLKvAdTHus0F886k73Uohs3PlOVgY7R0matJRG0FYz6awcEuv9leTZIbWH9Qldf/+S1jAkKk2DAgQHOt0+BTJjJR4jQQCzgDobqQxqHaFycURavF0SXk54wU+XyYixWNPw/snK+g0vTtLmEUCDW0q/KkeiNv1n1n2VMSPdeg1T6w1tV/HHqwBsY0YLUEzOKTnEESf+7iFED7AN+UPcAKiPHS1l0qhD26kQ="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true    
