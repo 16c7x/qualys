@@ -6,7 +6,8 @@
 
 # qualys
 
-This module installs the Qualys Agent.
+This module installs the Qualys Agent.  
+pipeline testing
 
 ## Setup
 
