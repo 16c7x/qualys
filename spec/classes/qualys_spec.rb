@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'qualys' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let(:facts) do #{ os_facts }
+      let(:facts) do # { os_facts }
         {
           #os_facts
           qualysfile: {
@@ -23,8 +23,8 @@ describe 'qualys' do
             activationid: '12345',
             customerid: '6789',
             usergroup: 'root',
-            }
           }
+        }
       end
         
       let(:params) do
