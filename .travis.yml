@@ -21,9 +21,8 @@ stages:
   - static
   - spec
   - acceptance
-  -
-    if: tag =~ ^v\d
-    name: deploy
+  - deploy
+  
 jobs:
   fast_finish: true
   include:
