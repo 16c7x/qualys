@@ -7,7 +7,7 @@ describe 'qualys' do
     context "on #{os}" do
       let(:facts) do # { os_facts }
         {
-          #os_facts
+          os_facts
           qualysfile: {
             UseSudo: '0',
             sudouser: 'root',
@@ -23,10 +23,10 @@ describe 'qualys' do
             activationid: '12345',
             customerid: '6789',
             usergroup: 'root',
-          }
+          },
         }
       end
-        
+
       let(:params) do
         {
           activationid: '12345',
