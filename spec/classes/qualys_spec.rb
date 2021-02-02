@@ -23,7 +23,7 @@ describe 'qualys' do
             activationid: '12345',
             customerid: '6789',
             usergroup: 'root',
-          },
+          }
         }
       end
 
