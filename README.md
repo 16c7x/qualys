@@ -7,7 +7,6 @@
 # qualys
 
 This module installs the Qualys Agent.
-A change
 
 ## Setup
 
