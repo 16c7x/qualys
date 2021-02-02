@@ -5,11 +5,9 @@ require 'spec_helper'
 describe 'qualys' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let(:facts) { os_facts }
-      let(:params) do
+      let(:facts) do #{ os_facts }
         {
-          activationid: '12345',
-          customerid: '6789',
+          os_facts
           qualysfile:UseSudo: '0'
           qualysfile.sudouser: 'root',
           qualysfile::sudocommand: 'sudo',
@@ -24,6 +22,13 @@ describe 'qualys' do
           qualysfile::activationid: '12345',
           qualysfile::customerid: '6789',
           qualysfile::usergroup: 'root',
+          }
+      end
+        
+      let(:params) do
+        {
+          activationid: '12345',
+          customerid: '6789',
         }
       end
 
