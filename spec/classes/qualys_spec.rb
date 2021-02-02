@@ -7,21 +7,21 @@ describe 'qualys' do
     context "on #{os}" do
       let(:facts) do #{ os_facts }
         {
-          os_facts
+          #os_facts
           qualysfile:UseSudo: '0'
           qualysfile.sudouser: 'root',
-          qualysfile::sudocommand: 'sudo',
-          qualysfile::log_level:  '3',
-          qualysfile::logfiledir: '/var/log/qualys',
-          qualysfile::cmdmaxtimeout: '1800',
-          qualysfile::processpriority: '0',
-          qualysfile::requesttimeout: '600',
-          qualysfile::useauditdispatcher: '1',
-          qualysfile::cmdstdoutsize: '1024',
-          qualysfile::luascripttimeout: '3600',
-          qualysfile::activationid: '12345',
-          qualysfile::customerid: '6789',
-          qualysfile::usergroup: 'root',
+          qualysfile.sudocommand: 'sudo',
+          qualysfile.log_level:  '3',
+          qualysfile.logfiledir: '/var/log/qualys',
+          qualysfile.cmdmaxtimeout: '1800',
+          qualysfile.processpriority: '0',
+          qualysfile.requesttimeout: '600',
+          qualysfile.useauditdispatcher: '1',
+          qualysfile.cmdstdoutsize: '1024',
+          qualysfile.luascripttimeout: '3600',
+          qualysfile.activationid: '12345',
+          qualysfile.customerid: '6789',
+          qualysfile.usergroup: 'root',
           }
       end
         
