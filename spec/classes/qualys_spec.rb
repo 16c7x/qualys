@@ -8,7 +8,7 @@ describe 'qualys' do
       let(:facts) do #{ os_facts }
         {
           #os_facts
-          qualysfile.UseSudo: '0'
+          qualysfile.UseSudo: '0',
           qualysfile.sudouser: 'root',
           qualysfile.sudocommand: 'sudo',
           qualysfile.log_level:  '3',
